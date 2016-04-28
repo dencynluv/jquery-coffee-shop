@@ -43,22 +43,45 @@
     </div>
 </div>
 
+<script src="http://code.jquery.com/jquery.js"></script>
+
 <script>
 
-    var myImage = document.getElementById("coffee_image");
     var myRevenueMessage = document.getElementById("revenue");
 
-    myImage.setAttribute('src', "static/coffee_beans.jpg");
-
-    myImage.addEventListener('click', function () {
-        return makeCoffee("brew");
-    });
+    // var myImage = $('#coffee_image')
+    // can be done this way
+    // OR
+    // var myImage = document.getElementById("coffee_image");
+    // myImage.setAttribute('src', "static/coffee_beans.jpg");
+    // OR
+    $('#coffee_image').attr('src', "static/coffee_beans.jpg");
+    // selecting the element that has the id coffee_image
 
     function makeCoffee() {
-         myImage.src = "static/coffee_machine.jpg";
-         setTimeout(function() { myImage.setAttribute('src', "static/coffee_mug.jpg"); }, 500);
-         setTimeout(function() { myImage.setAttribute('src', "static/coffee_beans.jpg"); }, 1500);
+        // jQuery this way
+        // myImage.attr('src', "static/coffee_machine.jpg");
+        // OR
+        $('#coffee_image').attr('src', "static/coffee_machine.jpg");
+
+        // Javascript way
+        // myImage.setAttribute('src', "static/coffee_mug.jpg"); 
+
+         setTimeout(function() { 
+            // myImage.setAttribute('src', "static/coffee_mug.jpg"); 
+            $('#coffee_image').attr('src', "static/coffee_mug.jpg");
+        }, 500);
+
+         setTimeout(function() {
+            // myImage.setAttribute('src', "static/coffee_beans.jpg"); 
+            $('#coffee_image').attr('src', "static/coffee_beans.jpg"); 
+        }, 1500);
     }
+
+    // myImage.addEventListener('click', function () {
+    //     return makeCoffee("brew");
+    // });
+    $('#coffee_image').click(makeCoffee);
 
 </script>
 
